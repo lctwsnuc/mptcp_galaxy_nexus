@@ -1364,7 +1364,7 @@ void tcp_cwnd_validate(struct sock *sk)
  * when we would be allowed to send the split-due-to-Nagle skb fully.
  */
 unsigned int tcp_mss_split_point(const struct sock *sk, const struct sk_buff *skb,
-				 unsigned int mss_now, unsigned int cwnd)
+				 unsigned int mss_now, unsigned int max_segs)
 {
 	struct tcp_sock *tp = tcp_sk(sk);
 	u32 needed, window, max_len;
