@@ -5317,13 +5317,8 @@ out:
 /* Does PAWS and seqno based validation of an incoming segment, flags will
  * play significant role here.
  */
-<<<<<<< HEAD
-static bool tcp_validate_incoming(struct sock *sk, struct sk_buff *skb,
-				  struct tcphdr *th, int syn_inerr)
-=======
 static int tcp_validate_incoming(struct sock *sk, struct sk_buff *skb,
 			     	 struct tcphdr *th, int syn_inerr)
->>>>>>> mptcp/mptcp_3.0.0
 {
 	const u8 *hash_location;
 	struct tcp_sock *tp = tcp_sk(sk);
@@ -5385,15 +5380,11 @@ syn_challenge:
 		goto discard;
 	}
 
-<<<<<<< HEAD
-	return true;
-=======
 	/* If valid: post process the received MPTCP options. */
 	if (tp->mpc && mptcp_handle_options(sk, th, skb))
 		goto discard;
 
 	return 1;
->>>>>>> mptcp/mptcp_3.0.0
 
 discard:
 	if (tp->mpc)
